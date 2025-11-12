@@ -33,12 +33,10 @@ public class TenantModel {
     private String phoneContact;
     private String websiteUrl;
 
-    // 🔹 Endereço
-    private String addressLine;
-    private String city;
-    private String state;
-    private String country;
-    private String postalCode;
+    // 🔹 Endereço (novo relacionamento)
+    @OneToOne(cascade = CascadeType.ALL)
+    @JoinColumn(name = "address_id", referencedColumnName = "id")
+    private AddressModel address;
 
     // 🔹 Configuração do ambiente
     private String timezone;            // Ex: America/Sao_Paulo

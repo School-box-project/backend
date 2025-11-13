@@ -48,11 +48,11 @@ public class StudentModel {
     @JoinColumn(name = "address_id", referencedColumnName = "id")
     private AddressModel address;
 
-    @OneToOne(cascade = CascadeType.ALL)
-    @JoinColumn(name = "tenant_id", referencedColumnName = "id")
+    @ManyToOne
+    @JoinColumn(name = "tenant_id", nullable = false)
     private TenantModel tenant;
 
-    @OneToOne(cascade = CascadeType.ALL)
-    @JoinColumn(name = "class_id", referencedColumnName = "id")
+    @ManyToOne
+    @JoinColumn(name = "class_id", nullable = false)
     private ClassModel current_class;
 }
